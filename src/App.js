@@ -3,7 +3,10 @@ import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList'
 import './components/Todo.css';
 
+// const App = () => {
 class App extends React.Component {
+
+  // const [ todo, setTodo ] = useState([]);
  
   constructor() {
     super();
@@ -12,6 +15,7 @@ class App extends React.Component {
     }
   }
 
+  //useEffect for componentDidMount/componentDidUpate
   componentDidMount(){
     console.log('mounted')
     const localStorageList = localStorage.getItem('todoList');
@@ -27,9 +31,9 @@ class App extends React.Component {
   }
 
   //Class methods to update State
+  //refactor - add const
   addTodo = (e, item )=> {
     e.preventDefault();
-
     const newItem = {
       name: item,
       id: Date.now(),
@@ -43,10 +47,9 @@ class App extends React.Component {
   }
 
 
-  
+  //refactor - add const
   toggleCompleted = clickedItem => {
     console.log(clickedItem)
-
     this.setState({
       todo: this.state.todo.map(item => {
         if (item.id === clickedItem) {
@@ -60,11 +63,13 @@ class App extends React.Component {
     });
   };
 
+  //refactor - add const
   handleChanges = (e) => {
     this.setState({ search: e.target.value })
     this.toggleShow(e.target.value);
   }
 
+    //refactor - add const
   clearTodo = e => {
     e.preventDefault();
     this.setState({
@@ -72,7 +77,7 @@ class App extends React.Component {
     });
   };
 
-
+  //remove render, remove this.state
   render() {
     return (
       <div className="App">

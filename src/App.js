@@ -1,96 +1,48 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import TodoForm from './components/TodoForm';
-import TodoList from './components/TodoList'
+import TodoList from './components/TodoList';
 import './components/Todo.css';
 
-// const App = () => {
-class App extends React.Component {
+import { todoReducer, initialState } from './reducers/index';
 
-  // const [ todo, setTodo ] = useState([]);
- 
-  constructor() {
-    super();
-    this.state ={
-      todo: []
-    }
-  }
+const App = () => {
+  // class App extends React.Component {
+  const [{ items }, dispatch] = useReducer(todoReducer, initialState);
+  // const [todo, setTodo] = useState([]);
 
-  //useEffect for componentDidMount/componentDidUpate
-  componentDidMount(){
-    console.log('mounted')
-    const localStorageList = localStorage.getItem('todoList');
-    const list = localStorageList ? JSON.parse(localStorageList):[]
-    this.setState({todo: list})
-  }
-
-  componentDidUpdate(){
-    console.log('updated')
-    const stringified = JSON.stringify(this.state.todo)
-    console.log(stringified)
-    localStorage.setItem('todoList', stringified)
-  }
-
-  //Class methods to update State
-  //refactor - add const
-  addTodo = (e, item )=> {
-    e.preventDefault();
+  const addTodo = item => {
     const newItem = {
       name: item,
       id: Date.now(),
       completed: false,
       show: true
-    }
-    this.setState((prevState) => { 
-      return {todo: [ ...prevState.todo, newItem ]}
-    });
-    
-  }
+    };
 
-
-  //refactor - add const
-  toggleCompleted = clickedItem => {
-    console.log(clickedItem)
-    this.setState({
-      todo: this.state.todo.map(item => {
-        if (item.id === clickedItem) {
-          return {
-            ...item,
-            completed: !item.completed
-          };
-        } 
-          return item;
-      })
-    });
+    dispatch({ type: 'ADD_TODO', payload: newItem });
   };
 
-  //refactor - add const
-  handleChanges = (e) => {
-    this.setState({ search: e.target.value })
-    this.toggleShow(e.target.value);
-  }
-
-    //refactor - add const
-  clearTodo = e => {
-    e.preventDefault();
-    this.setState({
-      todo: this.state.todo.filter(item => !item.completed)
-    });
+  const clearTodo = () => {
+    dispatch({ type: 'CLEAR_TODO' });
   };
 
-  //remove render, remove this.state
-  render() {
-    return (
-      <div className="App">
-        {console.log(localStorage)}
-      <div className="header">
+  const toggleCompleted = id => {
+    dispatch({ type: 'COMPLETED_TODO', payload: id });
+  };
+
+  return (
+    <div className='App'>
+      {console.log(localStorage)}
+      <div className='header'>
         <h1>TO DO LIST</h1>
-        <TodoForm  addTodo={this.addTodo}/>
-        <TodoList toggleCompleted={this.toggleCompleted} todo={this.state.todo}
-        clearTodo={this.clearTodo} />
+        <TodoForm addTodo={addTodo} clearTodo={clearTodo} />
+        <TodoList
+          todo={items}
+          toggleCompleted={toggleCompleted}
+          clearTodo={clearTodo}
+        />
       </div>
-      </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default App;

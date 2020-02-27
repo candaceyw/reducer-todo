@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
-const TodoForm = props => {
+const TodoForm = (props) => {
   const [item, setItem] = useState('');
+  // const [item, setItem] = useLocalStorage(key, initialValue)
 
   const handleChanges = e => {
     //update state wtih each keystroke

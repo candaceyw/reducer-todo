@@ -1,14 +1,27 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import NavBar from './components/NavBar';
 import './components/Todo.css';
 
 import { todoReducer, initialState } from './reducers/index';
 
 const App = () => {
+  useEffect(() => {
+    if (localStorage.getItem('state')) {
+      const localState = localStorage.getItem('state')
+      const parsed = JSON.parse(localState);
+      console.log(parsed)
+      refreshState(parsed)
+    }
+  }, [])
+
+
   // class App extends React.Component {
   const [{ items }, dispatch] = useReducer(todoReducer, initialState);
   // const [todo, setTodo] = useState([]);
+  const refreshState = (items)=> dispatch({type: "REFRESH_ITEMS", payload: items})
+  // const addTodo = item =>  dispatch({ type: 'ADD_TODO', payload: item });
 
   const addTodo = item => {
     const newItem = {
@@ -31,8 +44,8 @@ const App = () => {
 
   return (
     <div className='App'>
-      {console.log(localStorage)}
       <div className='header'>
+        <NavBar />
         <h1>TO DO LIST</h1>
         <TodoForm addTodo={addTodo} clearTodo={clearTodo} />
         <TodoList

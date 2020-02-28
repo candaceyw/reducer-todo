@@ -29,7 +29,6 @@ export const todoReducer = (state, action) => {
       return newState
     
     case 'COMPLETED_TODO':
-
       const newStateCompleted = {...state, 
         items: state.items.map(item =>
           item.id === action.payload
@@ -38,14 +37,7 @@ export const todoReducer = (state, action) => {
       const stateStringifiedCompleted = JSON.stringify(newStateCompleted)
       localStorage.setItem("state", stateStringifiedCompleted);
       return newStateCompleted
-      // return {
-      //   ...state, 
-      //   items: state.items.map(item =>
-      //     item.id === action.payload
-      //       ? { ...item, completed: !item.completed }
-      //       : item )
-      // };
-
+   
     case 'CLEAR_TODO':
       const newState2 = {...state, items: state.items.filter(item => !item.completed) }
       const stateStringified2 = JSON.stringify(newState2)

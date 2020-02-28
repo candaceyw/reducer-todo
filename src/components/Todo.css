@@ -51,13 +51,7 @@ body {
   background-color: #1b2938;
 } */
 
-.dark-mode h1 {
-  color: rgb(5, 147, 157);
-}
 
-.dark-mode h2 {
-  color: rgb(160, 31, 87);
-}
 
 
 
@@ -82,9 +76,11 @@ h1 {
   color: tomato;
 }
 
-h2{
-  color: steelblue;
+.dark-mode h1 {
+  color: rgb(157, 89, 77);
 }
+
+
 
 .toggle {
   position: relative;
@@ -161,7 +157,7 @@ input[type="checkbox"].checkbox + label {
     transition: background-color 0.25s ease-out;
   }
 
-  .light-mode .header {
+  .header {
     background-color: #fff;
     color: #333;
     transition: background-color 0.25s ease-out;
@@ -177,14 +173,16 @@ input[type="checkbox"].checkbox + label {
   box-shadow: 0px 1px 5px 0px #888787;
   }
 
-  .header {
+
+  
+  .dark-mode .header {
       margin-top: 60px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     /* background-color: white; */
     padding: 3%;
-    border-top: 8px solid tomato;
+    border-top: 8px solid rgb(157, 89, 77);
     -moz-box-shadow: 0px 1px 5px 0px #888787;
   -webkit-box-shadow: 0px 1px 5px 0px #888787;
   box-shadow: 0px 1px 5px 0px #888787;
@@ -208,7 +206,7 @@ input[type="checkbox"].checkbox + label {
   form {
      
     width: 100%;
-    display: flex;
+    /* display: flex; */
     /* justify-content: flex-end; */
   }
 
@@ -218,6 +216,8 @@ input[type="checkbox"].checkbox + label {
 
 form > input {
     background-color: rgba(255, 255, 255, 0);
+    transition: background-color 0.25s ease-out;
+
     border: 0;
     padding: 1%;
     font-size: 1.3rem;
@@ -229,14 +229,25 @@ form > input {
     margin-bottom: 20px;
   }
 
+  .dark-mode form > input {
+    border-bottom: 1px solid rgb(157, 89, 77);
+
+  }
+
   input::placeholder {
     color: tomato;
     opacity: 1;
     padding: 1%;
   }
 
+  .dark-mode input::placeholder {
+    color: rgb(157, 89, 77);
+  }
+
   .todo {
     background-color: white;
+    transition: background-color 0.25s ease-out;
+
     color: #333;
     width: 100%;
     text-align: center;
@@ -255,8 +266,10 @@ form > input {
 
   .dark-mode .todo {
     background-color: #242424;
-    border-bottom: .25px solid rgb(101, 101, 101);
+    transition: background-color 0.25s ease-out;
 
+    border-bottom: .25px solid rgb(101, 101, 101);
+    border-left: 6px solid rgb(157, 89, 77);
   }
 
   .dark-mode .todo p {
@@ -265,6 +278,8 @@ form > input {
   
   .todo.completed {
     background-color: rgb(184, 184, 184);
+    transition: background-color 0.25s ease-out;
+
     text-decoration: line-through;
     color: grey;
     border-left: 6px solid rgb(97, 96, 96);
@@ -274,15 +289,25 @@ form > input {
 
 
 button {
-    background-color: rgb(33, 33, 33);
-    color: white;
+    background-color: rgb(232, 232, 232);
+    transition: background-color 0.25s ease-out;
+
+    color: grey;
     font-size: 16px;
-    padding: 6px 14px;
+    padding: 14px 14px;
     border: none;
+    width: 100%;
   }
-  
+
+  form button {
+    margin-bottom: 30px;
+  }
+
   .dark-mode button {
-    background-color: rgb(99, 99, 99);
+    background-color: rgb(58, 58, 58);
+    transition: background-color 0.25s ease-out;
+
+    color: rgb(182, 182, 182);
   }
   
   .clear-btn {

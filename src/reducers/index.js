@@ -1,8 +1,7 @@
 const moment = require('moment')
 
 export const initialState = {
-  items: 
-  [
+  items: [
     {
       name: null,
       completed: false,
@@ -18,42 +17,41 @@ export const initialState = {
 
 export const todoReducer = (state, action) => {
   switch (action.type) {
-   
-
+  
     case 'REFRESH_ITEMS':
       let localStorageState = action.payload
       return localStorageState
-      
-      // const stateStringified = JSON.stringify(state)
-      // localStorage.setItem("state", stateStringified);
+
     case 'ADD_TODO':
       const newState = { ...state, items: [...state.items, action.payload] }
       const stateStringified = JSON.stringify(newState)
       localStorage.setItem("state", stateStringified);
       return newState
-      // return { ...state, items: [...state.items, {name: action.payload, id: Date.now(), timeCompleted: momen().format(), completed: false,
-      // }]};
-      // return { ...state, items: [...state.items, action.payload] };
-
-        // return {
-        //   ...state,
-        //   name: action.payload.items,
-        //   id: Date.now(),
-        //   completed: false,
-        //   show: true
-        // }
-        
+    
     case 'COMPLETED_TODO':
-      // localStorage.setItem("items", JSON.stringify(action.payload.items));
-      return {
-        ...state, 
+
+      const newStateCompleted = {...state, 
         items: state.items.map(item =>
           item.id === action.payload
             ? { ...item, completed: !item.completed }
-            : item )
-      };
+            : item ) }
+      const stateStringifiedCompleted = JSON.stringify(newStateCompleted)
+      localStorage.setItem("state", stateStringifiedCompleted);
+      return newStateCompleted
+      // return {
+      //   ...state, 
+      //   items: state.items.map(item =>
+      //     item.id === action.payload
+      //       ? { ...item, completed: !item.completed }
+      //       : item )
+      // };
+
     case 'CLEAR_TODO':
-      return { ...state, items: state.items.filter(item => !item.completed) };
+      const newState2 = {...state, items: state.items.filter(item => !item.completed) }
+      const stateStringified2 = JSON.stringify(newState2)
+      localStorage.setItem("state", stateStringified2);
+      return newState2
+
     default:
       return state;
   }

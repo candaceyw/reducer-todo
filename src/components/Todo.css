@@ -35,7 +35,7 @@ body {
 .light-mode {
   background-color: #fff;
   color: #333;
-  transition: background-color 0.25s ease-out;
+  /* transition: background-color 0.25s ease-out; */
 }
 
 .light-mode nav {
@@ -43,7 +43,7 @@ body {
 }
 
 .dark-mode {
-  background-color: #1a1919;
+  background-color: #242424;
   color: #999;
 }
 
@@ -59,9 +59,7 @@ body {
   color: rgb(160, 31, 87);
 }
 
-.dark-mode .cardWrapper {
-  background-color: #1b2938;
-}
+
 
 nav {
   width: 100%;
@@ -80,8 +78,8 @@ main {
 }
 
 h1 {
-  margin: 0;
-  color: rgb(213, 25, 107);
+  margin-bottom: 50px;
+  color: tomato;
 }
 
 h2{
@@ -128,7 +126,7 @@ input[type="checkbox"].checkbox + label {
   left: 2px;
   background: #fff;
   opacity: 0.9;
-  background-color: cyan;
+  background-color: rgb(206, 206, 206);
 }
 
 .toggle-container {
@@ -158,14 +156,35 @@ input[type="checkbox"].checkbox + label {
     margin: 0 auto;
   }
 
-  .header {
-      margin-top: 60px;
+  .dark-mode .header{
+    background-color: #242424;
+    transition: background-color 0.25s ease-out;
+  }
+
+  .light-mode .header {
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.25s ease-out;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: white;
     padding: 3%;
-    border-top: 8px solid palevioletred;
+    border-top: 8px solid tomato;
+    -moz-box-shadow: 0px 1px 5px 0px #888787;
+  -webkit-box-shadow: 0px 1px 5px 0px #888787;
+  box-shadow: 0px 1px 5px 0px #888787;
+  }
+
+  .header {
+      margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* background-color: white; */
+    padding: 3%;
+    border-top: 8px solid tomato;
     -moz-box-shadow: 0px 1px 5px 0px #888787;
   -webkit-box-shadow: 0px 1px 5px 0px #888787;
   box-shadow: 0px 1px 5px 0px #888787;
@@ -202,52 +221,85 @@ form > input {
     border: 0;
     padding: 1%;
     font-size: 1.3rem;
-    width: 350px;
+    width: 100%;
     outline: 0;
     color: rgb(77, 77, 77);
-    border-bottom: 1px solid palevioletred;
+    border-bottom: 1px solid tomato;
     margin-right: 8px;
+    margin-bottom: 20px;
   }
 
   input::placeholder {
-    color: palevioletred;
+    color: tomato;
     opacity: 1;
     padding: 1%;
   }
 
   .todo {
-    background-color: palevioletred;
-    color: white;
-    width: 45%;
+    background-color: white;
+    color: #333;
+    width: 100%;
     text-align: center;
-    margin: 15px 0;
+    /* margin: 15px 0; */
     padding-left: 5px;
     cursor: pointer;
     padding: 5px;
+    border-left: 6px solid tomato;
+    border-bottom: .25px solid rgb(228, 227, 227);
 
   }
   .todo p{
-      color: white;
+      color: #333;
       font-size: 1rem;
+  }
+
+  .dark-mode .todo {
+    background-color: #242424;
+    border-bottom: .25px solid rgb(101, 101, 101);
+
+  }
+
+  .dark-mode .todo p {
+    color: rgb(213, 213, 213);
   }
   
   .todo.completed {
-    background-color: rgb(220, 195, 203);
+    background-color: rgb(184, 184, 184);
     text-decoration: line-through;
     color: grey;
+    border-left: 6px solid rgb(97, 96, 96);
 
     
   }
 
 
 button {
-    background-color: palevioletred;
+    background-color: rgb(33, 33, 33);
     color: white;
     font-size: 16px;
     padding: 6px 14px;
+    border: none;
+  }
+  
+  .dark-mode button {
+    background-color: rgb(99, 99, 99);
   }
   
   .clear-btn {
     margin-top: 16px;
   }
   
+  .todo{
+    display: flex;
+    align-content: center;
+    justify-content: inherit;
+  }
+  .time{
+    display: flex;
+    align-items: center;
+    
+  }
+
+  .dark-mode .time {
+    color: rgb(213, 213, 213);
+  }

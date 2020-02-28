@@ -8,7 +8,9 @@ const Todo = props => {
       onClick={() => props.toggleCompleted(props.todo.id)}
     >
       <p>{props.todo.name}</p>
-  <span>{moment(props.todo.timeCompleted).fromNow() }</span>
+  {/* <span>{moment(props.todo.timeCompleted).fromNow() }</span> */}
+  <span className="time">{moment.duration(-1, "minutes").locale("en").humanize(true)}</span>
+
     </div>
   );
 };

@@ -12,7 +12,7 @@ const Navbar = () => {
     <div className={darkMode ? "dark-mode" : "light-mode"}>
       <nav>
         <div className="toggle-container">
-          <span style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</span>
+          <span style={{ color: darkMode ? "grey" : "#ffd800" }}>☀︎</span>
           <span className="toggle" data-testid='toggle'>
             <input
               checked={darkMode}
@@ -25,7 +25,7 @@ const Navbar = () => {
             />
             <label htmlFor="checkbox" />
           </span>
-          <span style={{ color: darkMode ? "slateblue" : "grey" }}>☾</span>
+          <span style={{ color: darkMode ? "#8733FF" : "grey" }}>☾</span>
           {/* <button onClick={() => setDarkMode(prevMode => !prevMode)}>
           Toggle
         </button> */}

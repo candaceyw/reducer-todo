@@ -1,5 +1,7 @@
 import React from 'react';
 import Todo from './Todo';
+const moment = require("moment");
+
 
 const TodoList = props => {
   return (
@@ -12,8 +14,10 @@ const TodoList = props => {
               todo={item}
               toggleCompleted={props.toggleCompleted}
             />
+            
           )
       )}
+    
 
       <button className='clear-btn' onClick={props.clearTodo}>
         {' '}

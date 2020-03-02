@@ -28,7 +28,7 @@ const TodoForm = (props) => {
     <div>
       <form onSubmit={submitItem}>
         {/* <label htmlFor='item'>New To Do: </label> */}
-        <input type='text' name='item' value={item} onChange={handleChanges} placeholder="Enter New To Do" />
+        <input type='text' name='item' value={item} onChange={handleChanges} placeholder="Enter New To Do" required/>
         <button> Add New To Do Item </button>
       </form>
     </div>

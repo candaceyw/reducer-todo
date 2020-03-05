@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background-color: white;    
+    /* background-image: url('../../images/background.jpg'); */
+    background-size: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+span {
+    color: rgb(37, 37, 38);
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.light-mode {
+  background-color: #fff;
+  color: #333;
+  /* transition: background-color 0.25s ease-out; */
+}
+
+.light-mode nav {
+  transition: background-color 0.25s ease-out;
+}
+
+.dark-mode {
+  background-color: #242424;
+  color: #999;
+}
+
+/* .dark-mode nav {
+  background-color: #1b2938;
+} */
+
+
+
+
+
+nav {
+  width: 100%;
+  display: flex;
+  /* background-color: steelblue; */
+  padding: 20px;
+}
+
+main {
+  padding: 0.5em;
+  margin: 0 auto;
+  max-width: 600px;
+  font-size: 1.2rem;
+  line-height: 1.1;
+  height: 90vh;
+}
+
+h1 {
+  margin-bottom: 50px;
+  color: tomato;
+}
+
+.dark-mode h1 {
+  color: rgb(157, 89, 77);
+}
+
+
+
+.toggle {
+  position: relative;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"].checkbox {
+  width: 40px;
+  height: 10px;
+  background: #555;
+  position: relative;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  vertical-align: 2px;
+  outline: none;
+}
+
+input[type="checkbox"].checkbox:checked + label {
+  left: 30px;
+}
+
+input[type="checkbox"].checkbox:focus-visible {
+  outline: solid 2px white;
+}
+
+input[type="checkbox"].checkbox + label {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: absolute;
+  left: 2px;
+  background: #fff;
+  opacity: 0.9;
+  background-color: rgb(206, 206, 206);
+}
+
+.toggle-container {
+  display: flex;
+  margin: 0 auto;
+}
+
+.toggle-container > span {
+  font-size: 1.2em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-top: 4px;
+  margin-right: 2px;
+}
+
+.toggle-container > span:last-child {
+  margin-top: 5px;
+}
+
+.App {
+    font-family: sans-serif;
+    /* text-align: center; */
+    padding: 0 36px;
+    max-width: 665px;
+    margin: 0 auto;
+  }
+
+  .dark-mode .header{
+    background-color: #242424;
+    transition: background-color 0.25s ease-out;
+  }
+
+  .header {
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.25s ease-out;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    padding: 3%;
+    border-top: 8px solid tomato;
+    -moz-box-shadow: 0px 1px 5px 0px #888787;
+  -webkit-box-shadow: 0px 1px 5px 0px #888787;
+  box-shadow: 0px 1px 5px 0px #888787;
+  }
+
+
+  
+  .dark-mode .header {
+      margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* background-color: white; */
+    padding: 3%;
+    border-top: 8px solid rgb(157, 89, 77);
+    -moz-box-shadow: 0px 1px 5px 0px #888787;
+  -webkit-box-shadow: 0px 1px 5px 0px #888787;
+  box-shadow: 0px 1px 5px 0px #888787;
+   
+  }
+  h1 {
+    /* font-family: 'Roboto', sans-serif; */
+    font-weight: bold;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+
+  .todo-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  form {
+     
+    width: 100%;
+    /* display: flex; */
+    /* justify-content: flex-end; */
+  }
+
+  label {
+      font-size: 2rem;
+  }
+
+form > input {
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color 0.25s ease-out;
+
+    border: 0;
+    padding: 1%;
+    font-size: 1.3rem;
+    width: 100%;
+    outline: 0;
+    color: rgb(77, 77, 77);
+    border-bottom: 1px solid tomato;
+    margin-right: 8px;
+    margin-bottom: 20px;
+  }
+
+  .dark-mode form > input {
+    border-bottom: 1px solid rgb(157, 89, 77);
+
+  }
+
+  input::placeholder {
+    color: tomato;
+    opacity: 1;
+    padding: 1%;
+  }
+
+  .dark-mode input::placeholder {
+    color: rgb(157, 89, 77);
+  }
+
+  .todo {
+    background-color: white;
+    transition: background-color 0.25s ease-out;
+
+    color: #333;
+    width: 100%;
+    text-align: center;
+    /* margin: 15px 0; */
+    padding-left: 5px;
+    cursor: pointer;
+    padding: 5px;
+    border-left: 6px solid tomato;
+    border-bottom: .25px solid rgb(228, 227, 227);
+
+  }
+  .todo p{
+      color: #333;
+      font-size: 1rem;
+  }
+
+  .dark-mode .todo {
+    background-color: #242424;
+    transition: background-color 0.25s ease-out;
+
+    border-bottom: .25px solid rgb(101, 101, 101);
+    border-left: 6px solid rgb(157, 89, 77);
+  }
+
+  .dark-mode .todo p {
+    color: rgb(213, 213, 213);
+  }
+  
+  .todo.completed {
+    background-color: rgb(184, 184, 184);
+    transition: background-color 0.25s ease-out;
+
+    text-decoration: line-through;
+    color: grey;
+    border-left: 6px solid rgb(97, 96, 96);
+
+    
+  }
+
+
+button {
+    background-color: rgb(232, 232, 232);
+    transition: background-color 0.25s ease-out;
+
+    color: grey;
+    font-size: 16px;
+    padding: 14px 14px;
+    border: none;
+    width: 100%;
+  }
+
+  form button {
+    margin-bottom: 30px;
+  }
+
+  .dark-mode button {
+    background-color: rgb(58, 58, 58);
+    transition: background-color 0.25s ease-out;
+
+    color: rgb(182, 182, 182);
+  }
+  
+  .clear-btn {
+    margin-top: 16px;
+  }
+  
+  .todo{
+    display: flex;
+    align-content: center;
+    justify-content: inherit;
+  }
+  .time{
+    display: flex;
+    align-items: center;
+    
+  }
+
+  .dark-mode .time {
+    color: rgb(213, 213, 213);
+  }
